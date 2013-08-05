@@ -38,3 +38,34 @@ function randomID(){
 	var uniqid = randLetter + Date.now();
 	return uniqid;
 }
+
+/*
+*	SIZE OF OBJECT
+*/
+Object.size = function(obj) {
+    var size = 0, key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+}
+
+/*
+*	BINARY SEARCH
+*/
+function binarySearch(key, array){   
+    var low = 0;
+    var high = array.length - 1;
+    while(low <= high){
+        var mid = Math.floor((low + high)/2);
+        var value = array[mid];
+        if(value < key){
+             low = mid + 1;   
+        } else if(value > key){
+            high = mid - 1;
+        } else {
+             return mid;   
+        }
+    }
+    return null;
+}
